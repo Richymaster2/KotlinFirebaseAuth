@@ -43,7 +43,7 @@ class Register : AppCompatActivity() {
                     val registerRef = dbRef.child("user").child(userId)
                     val user = User(displayName.text.toString(), status.text.toString())
                     registerRef.setValue(user).addOnSuccessListener(){
-                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                        val intent = Intent(this@Register, Login::class.java)
                         startActivity(intent)
                         finish()
                     }
