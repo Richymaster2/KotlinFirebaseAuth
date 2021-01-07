@@ -40,7 +40,7 @@ class Register : AppCompatActivity() {
             addOnCompleteListener { task: Task<AuthResult> ->
                 if (task.isSuccessful){
                     val userId = auth.currentUser?.uid
-                    val registerRef = dbRef.child("user").child(userId)
+                    val registerRef = dbRef.child("user").child(userId.toString())
                     val user = User(displayName.text.toString(), status.text.toString())
                     registerRef.setValue(user).addOnSuccessListener(){
                         val intent = Intent(this@Register, Login::class.java)
